@@ -61,6 +61,7 @@ const pkg = getPackageJson();
   if (bumpPolicy === 'all') {
     isVersionBump = messages.find((message) => commitMessageRegex.test(message)) !== undefined;
   } else if (bumpPolicy === 'last-commit') {
+    console.log('last commit', messages[messages.length - 1])
     isVersionBump = messages.length > 0 && commitMessageRegex.test(messages[messages.length - 1]);
   } else if (bumpPolicy === 'ignore') {
     console.log('Ignoring any version bumps in commits...');
